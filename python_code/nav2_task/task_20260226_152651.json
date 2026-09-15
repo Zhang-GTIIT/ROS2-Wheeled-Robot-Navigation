@@ -1,0 +1,1 @@
+{"location_name": "Arm_Action", "coords": {"module": "arm_system", "operation": "grasp", "target_object": "Coffee"}, "action": "execute_script"}

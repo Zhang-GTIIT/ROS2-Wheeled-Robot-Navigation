@@ -1,0 +1,27 @@
+{
+  "artifact": "assets/navigation/04_offline_navigation_reproduction.gif",
+  "label": "OFFLINE REPRODUCTION",
+  "scope": "Python-only real-map A* plus simplified DWB-style unicycle simulation; no ROS 2 graph and no hardware run",
+  "source_map": "map/scans5f2.yaml + wzb/map/scans5f2.pgm",
+  "global_path_source": "offline_reproduction/astar.py",
+  "controller_source": "offline_reproduction/dwb.py",
+  "success": true,
+  "termination_message": "goal reached within configured xy tolerance",
+  "controller_steps": 4268,
+  "simulated_duration_s": 213.4,
+  "compute_time_s": 11.875366599997506,
+  "trajectory_length_m": 81.31806485261802,
+  "final_goal_distance_m": 0.3936151033799075,
+  "configured_goal_tolerance_m": 0.4,
+  "minimum_center_clearance_m": 0.36400550603866577,
+  "full_footprint_collision_count": 0,
+  "all_executed_poses_collision_free": true,
+  "candidate_trajectories_per_cycle": 200,
+  "velocity_statistics": {
+    "maximum_mps": 0.4000000059604645,
+    "mean_mps": 0.38105934795041085,
+    "maximum_abs_angular_rps": 0.24888888001441956
+  },
+  "rendered_frames": 35,
+  "parameters_used": "results/offline_reproduction/parameters_used.json"
+}

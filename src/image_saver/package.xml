@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>image_saver</name>
+  <version>0.0.1</version>
+  <description>
+    A ROS 2 Python package that subscribes to an image topic and saves one frame per second as PNG files.
+  </description>
+
+  <maintainer email="your_email@example.com">Your Name</maintainer>
+
+  <license>MIT</license>
+
+  <!-- Buildtool dependency -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime dependencies -->
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+
+  <!-- Test dependencies -->
+  <test_depend>pytest</test_depend>
+
+  <!-- Export information -->
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+

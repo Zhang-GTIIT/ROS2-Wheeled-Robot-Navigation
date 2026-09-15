@@ -1,0 +1,9 @@
+{
+    "location_name": "Elevator_Lobby_1F",
+    "coords": {
+        "x": -2.63,
+        "y": -4.86,
+        "yaw": 2.40
+    },
+    "action": "navigate"
+}

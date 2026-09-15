@@ -1,0 +1,43 @@
+{
+  "source_filename": "scans0120gf.pcd",
+  "source_member": "wzb/map/gf/scans0120gf.pcd",
+  "source_archive": "wzb.zip",
+  "pcd_data_encoding": "binary",
+  "pcd_fields": [
+    "x",
+    "y",
+    "z",
+    "intensity",
+    "normal_x",
+    "normal_y",
+    "normal_z",
+    "curvature"
+  ],
+  "pcd_header_points": 12026580,
+  "finite_input_points": 12026580,
+  "voxel_size_m": 0.2,
+  "downsampled_points": 1736953,
+  "retained_fraction": 0.14442617934608176,
+  "bounding_box_m": {
+    "minimum_xyz": [
+      -217.1306915283203,
+      -243.1349334716797,
+      -8.491454124450684
+    ],
+    "maximum_xyz": [
+      64.58169555664062,
+      138.22927856445312,
+      33.943519592285156
+    ]
+  },
+  "compressed_member_size_bytes": 166297254,
+  "uncompressed_member_size_bytes": 384850815,
+  "artifact": "assets/navigation/02_slam_pointcloud.png",
+  "label": "OFFLINE REPRODUCTION",
+  "method": "streaming NumPy voxel representative selection",
+  "rendered_points": 138387,
+  "render_percentile_window": [
+    0.2,
+    99.8
+  ]
+}

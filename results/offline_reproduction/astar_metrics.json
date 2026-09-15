@@ -1,0 +1,91 @@
+{
+  "artifact": "assets/navigation/01_astar_global_path.png",
+  "label": "OFFLINE REPRODUCTION",
+  "source_map": {
+    "yaml": "map/scans5f2.yaml",
+    "image": "scans5f2.pgm",
+    "source_archive": "wzb.zip",
+    "width": 1520,
+    "height": 2400,
+    "resolution": 0.0500000007,
+    "origin": [
+      -51.20000076293945,
+      -89.3499984741211,
+      0.0
+    ],
+    "occupied_thresh": 0.65,
+    "free_thresh": 0.25,
+    "negate": 0,
+    "mode": "trinary"
+  },
+  "cell_counts": {
+    "free": 353137,
+    "occupied": 18490,
+    "unknown": 3276373,
+    "traversable_after_safety_margin": 182741,
+    "largest_connected_component": 169425
+  },
+  "safety_model": {
+    "footprint_m": [
+      [
+        0.4,
+        0.3
+      ],
+      [
+        0.4,
+        -0.3
+      ],
+      [
+        -0.4,
+        -0.3
+      ],
+      [
+        -0.4,
+        0.3
+      ]
+    ],
+    "footprint_circumscribed_radius_m": 0.5,
+    "configured_local_inflation_radius_m": 0.4,
+    "center_safety_radius_m": 0.5,
+    "unknown_cells_traversable": false
+  },
+  "endpoint_selection": {
+    "method": "deterministic farthest pair in the largest safe connected component",
+    "note": "Start and goal are selected for offline reproduction; they are not claimed as recorded mission waypoints.",
+    "minimum_selection_clearance_m": 0.8,
+    "start_cell_row_col": [
+      1851,
+      485
+    ],
+    "goal_cell_row_col": [
+      530,
+      956
+    ],
+    "start_world_xy_m": [
+      -26.925000423089454,
+      -61.924998090171094
+    ],
+    "goal_world_xy_m": [
+      -3.3750000933894526,
+      4.1250028345289
+    ],
+    "start_is_free": true,
+    "goal_is_free": true,
+    "start_is_traversable": true,
+    "goal_is_traversable": true
+  },
+  "astar": {
+    "implementation": "offline_reproduction/astar.py (Python heap-based 8-connected A*)",
+    "heuristic": "octile distance",
+    "diagonal_corner_cutting": false,
+    "expanded_nodes": 133993,
+    "planning_time_s": 0.7260172000096645,
+    "path_points": 1322,
+    "path_length_pixels": 1671.0104602052656,
+    "path_length_m": 83.55052417997061,
+    "straight_line_distance_m": 70.12278615173344,
+    "path_efficiency_ratio": 1.1914889405446882,
+    "minimum_center_clearance_m": 0.500000007,
+    "all_path_cells_traversable": true
+  }
+}

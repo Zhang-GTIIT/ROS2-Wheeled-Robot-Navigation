@@ -1,0 +1,45 @@
+# ROS 2 / colcon build output
+build/
+install/
+log/
+ros2_logs/
+my_log/
+
+# Runtime output and captured data
+saved_images/
+raw_data/
+received_tasks/
+**/rosbag/
+**/Log/
+*.log
+*.log.*
+*.db3
+*.bag
+*.mcap
+*.pkl
+
+# Large maps and model artifacts (store outside normal Git history or use Git LFS)
+*.pcd
+*.pgm
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Python / notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

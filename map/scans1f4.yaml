@@ -1,0 +1,12 @@
+image: scans1f4.pgm
+mode: trinary
+width: 3408
+height: 2464
+resolution: 0.0500000007
+origin:
+  - -40.650001525878906
+  - -92.349998474121094
+  - 0
+negate: 0
+occupied_thresh: 0.65000000000000002
+free_thresh: 0.25

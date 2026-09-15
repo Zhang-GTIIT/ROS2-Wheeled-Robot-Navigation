@@ -1,0 +1,7 @@
+waiting_zone:
+  frame: map
+  center: [10.5, 3.2]     # 电梯门前位置（你自己改）
+  yaw: 1.57              # 面向电梯
+  length: 1.5
+  width: 1.2
+  yaw_tolerance: 0.52

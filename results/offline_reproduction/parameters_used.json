@@ -1,0 +1,223 @@
+{
+  "map_resolution": {
+    "value": 0.0500000007,
+    "unit": "m/pixel",
+    "source": "map/scans5f2.yaml",
+    "key": "resolution"
+  },
+  "map_origin": {
+    "value": [
+      -51.20000076293945,
+      -89.3499984741211,
+      0.0
+    ],
+    "unit": "m, m, rad",
+    "source": "map/scans5f2.yaml",
+    "key": "origin"
+  },
+  "occupied_thresh": {
+    "value": 0.65,
+    "unit": "probability",
+    "source": "map/scans5f2.yaml",
+    "key": "occupied_thresh"
+  },
+  "free_thresh": {
+    "value": 0.25,
+    "unit": "probability",
+    "source": "map/scans5f2.yaml",
+    "key": "free_thresh"
+  },
+  "negate": {
+    "value": 0,
+    "unit": "boolean flag",
+    "source": "map/scans5f2.yaml",
+    "key": "negate"
+  },
+  "robot_footprint": {
+    "value": [
+      [
+        0.4,
+        0.3
+      ],
+      [
+        0.4,
+        -0.3
+      ],
+      [
+        -0.4,
+        -0.3
+      ],
+      [
+        -0.4,
+        0.3
+      ]
+    ],
+    "unit": "m",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "local_costmap.local_costmap.ros__parameters.footprint"
+  },
+  "inflation_radius": {
+    "value": 0.4,
+    "unit": "m",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "local_costmap.local_costmap.ros__parameters.inflation_layer.inflation_radius"
+  },
+  "global_inflation_radius_detected": {
+    "value": 8.0,
+    "unit": "m",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "global_costmap.global_costmap.ros__parameters.inflation_layer.inflation_radius",
+    "used_in_offline_reproduction": false,
+    "note": "The retained file contains 8.0 m here; the offline reproduction uses the enabled 0.40 m local-costmap value and records this discrepancy for manual review."
+  },
+  "costmap_resolution": {
+    "value": 0.05,
+    "unit": "m/pixel",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "local_costmap.local_costmap.ros__parameters.resolution"
+  },
+  "max_vel_x": {
+    "value": 0.4,
+    "unit": "m/s",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.max_vel_x"
+  },
+  "min_vel_x": {
+    "value": 0.0,
+    "unit": "m/s",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.min_vel_x"
+  },
+  "max_vel_theta": {
+    "value": 1.0,
+    "unit": "rad/s",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.max_vel_theta"
+  },
+  "acc_lim_x": {
+    "value": 2.5,
+    "unit": "m/s^2",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.acc_lim_x"
+  },
+  "acc_lim_theta": {
+    "value": 3.2,
+    "unit": "rad/s^2",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.acc_lim_theta"
+  },
+  "decel_lim_x": {
+    "value": -2.5,
+    "unit": "m/s^2",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.decel_lim_x"
+  },
+  "decel_lim_theta": {
+    "value": -3.2,
+    "unit": "rad/s^2",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.decel_lim_theta"
+  },
+  "controller_frequency": {
+    "value": 20.0,
+    "unit": "Hz",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.controller_frequency"
+  },
+  "vx_samples": {
+    "value": 20,
+    "unit": "samples",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.vx_samples"
+  },
+  "vy_samples": {
+    "value": 5,
+    "unit": "samples",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.vy_samples",
+    "used_in_offline_reproduction": false,
+    "note": "Retained for provenance. The Python unicycle model has no lateral velocity degree of freedom."
+  },
+  "vtheta_samples": {
+    "value": 10,
+    "unit": "samples",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.vtheta_samples"
+  },
+  "simulation_horizon": {
+    "value": 1.0,
+    "unit": "s",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.sim_time"
+  },
+  "forward_point_distance": {
+    "value": 0.6,
+    "unit": "m",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.PathAlign.forward_point_distance"
+  },
+  "goal_tolerance": {
+    "value": 0.4,
+    "unit": "m",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.general_goal_checker.xy_goal_tolerance"
+  },
+  "planner_use_astar": {
+    "value": true,
+    "unit": "boolean",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "planner_server.ros__parameters.GridBased.use_astar"
+  },
+  "planner_allow_unknown": {
+    "value": true,
+    "unit": "boolean",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "planner_server.ros__parameters.GridBased.allow_unknown",
+    "used_in_offline_reproduction": false,
+    "offline_value": false,
+    "note": "Unknown cells are treated as non-traversable in the conservative offline reproduction."
+  },
+  "pointcloud_voxel_size": {
+    "value": 0.2,
+    "unit": "m",
+    "source": "offline_reproduction/config.py",
+    "key": "POINTCLOUD_VOXEL_SIZE_M",
+    "source_kind": "offline visualization setting"
+  },
+  "critic_BaseObstacle": {
+    "value": 1.5,
+    "unit": "scale",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.BaseObstacle.scale"
+  },
+  "critic_PathAlign": {
+    "value": 8.0,
+    "unit": "scale",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.PathAlign.scale"
+  },
+  "critic_PathDist": {
+    "value": 10.0,
+    "unit": "scale",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.PathDist.scale"
+  },
+  "critic_GoalAlign": {
+    "value": 5.0,
+    "unit": "scale",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.GoalAlign.scale"
+  },
+  "critic_GoalDist": {
+    "value": 5.0,
+    "unit": "scale",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.GoalDist.scale"
+  },
+  "critic_RotateToGoal": {
+    "value": 32.0,
+    "unit": "scale",
+    "source": "nav2_params/nav2_params.yaml",
+    "key": "controller_server.ros__parameters.FollowPath.RotateToGoal.scale"
+  }
+}

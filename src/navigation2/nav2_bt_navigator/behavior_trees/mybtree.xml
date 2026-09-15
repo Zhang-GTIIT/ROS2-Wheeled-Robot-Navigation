@@ -1,0 +1,199 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+
+    <Sequence name="MainSequence">
+
+      <!-- 1st target (5f lift entry) -->
+      <SetGoal x="54.99" y="-2.46" yaw="-1.91" goal="{goal}"/>
+      <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+
+        <PipelineSequence name="NavigateWithReplanning">
+
+          <!-- 规划循环 -->
+          <RateController hz="1.0">
+            <RecoveryNode number_of_retries="1" name="ComputePathToPose">
+              <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Context"
+                                  service_name="global_costmap/clear_entirely_global_costmap"/>
+            </RecoveryNode>
+          </RateController>
+
+          <!-- 跟踪循环 -->
+          <RecoveryNode number_of_retries="1" name="FollowPath">
+            <FollowPath path="{path}" controller_id="FollowPath"/>
+            <ClearEntireCostmap name="ClearLocalCostmap-Context"
+                                service_name="local_costmap/clear_entirely_local_costmap"/>
+          </RecoveryNode>
+
+        </PipelineSequence>
+
+        <!-- 恢复动作 -->
+        <ReactiveFallback name="RecoveryFallback">
+          <GoalUpdated/>
+          <RoundRobin name="RecoveryActions">
+            <Sequence name="ClearingActions">
+              <ClearEntireCostmap name="ClearLocalCostmap-Subtree"
+                                  service_name="local_costmap/clear_entirely_local_costmap"/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Subtree"
+                                  service_name="global_costmap/clear_entirely_global_costmap"/>
+            </Sequence>
+            <Spin spin_dist="1.57"/>
+            <Wait wait_duration="5"/>
+            <BackUp backup_dist="0.30" backup_speed="0.05"/>
+          </RoundRobin>
+        </ReactiveFallback>
+      </RecoveryNode>
+
+      <!-- 到达电梯门前，启动YOLO脚本 -->
+      <RunShell script="/home/agv/wzb/shell/yolo_on.sh" />
+
+      <!-- 等待识别信号 -->
+      <RetryUntilSuccessful num_attempts="-1">
+        <LiftState expected="open"/>
+      </RetryUntilSuccessful>
+
+      <!-- 2nd target (into the lift) -->
+      <SetGoal x="53.73" y="-5.92" yaw="-1.91" goal="{goal}"/>
+      <!-- nav to second goal -->
+      <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+
+        <PipelineSequence name="NavigateWithReplanning">
+
+          <!-- 规划循环 -->
+          <RateController hz="1.0">
+            <RecoveryNode number_of_retries="1" name="ComputePathToPose">
+              <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Context"
+                                  service_name="global_costmap/clear_entirely_global_costmap"/>
+            </RecoveryNode>
+          </RateController>
+
+          <!-- 跟踪循环 -->
+          <RecoveryNode number_of_retries="1" name="FollowPath">
+            <FollowPath path="{path}" controller_id="FollowPath"/>
+            <ClearEntireCostmap name="ClearLocalCostmap-Context"
+                                service_name="local_costmap/clear_entirely_local_costmap"/>
+          </RecoveryNode>
+
+        </PipelineSequence>
+
+        <!-- 恢复动作 -->
+        <ReactiveFallback name="RecoveryFallback">
+          <GoalUpdated/>
+          <RoundRobin name="RecoveryActions">
+            <Sequence name="ClearingActions">
+              <ClearEntireCostmap name="ClearLocalCostmap-Subtree"
+                                  service_name="local_costmap/clear_entirely_local_costmap"/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Subtree"
+                                  service_name="global_costmap/clear_entirely_global_costmap"/>
+            </Sequence>
+
+            <Wait wait_duration="5"/>
+            <BackUp backup_dist="0.30" backup_speed="0.05"/>
+          </RoundRobin>
+        </ReactiveFallback>
+
+      </RecoveryNode>
+
+      <Spin spin_dist="1.23"/>
+
+      <!-- sw map and icp, set initial 2f pose -->
+      <RunShell script="/home/agv/wzb/shell/sw_map1f.sh"/>
+      <RunShell script="/home/agv/wzb/shell/sw_icp1f.sh"/>
+
+      <RetryUntilSuccessful num_attempts="-1">
+        <LiftState expected="1"/>
+      </RetryUntilSuccessful>
+
+      <SetInitialPose x="-8.58" y="16.92" yaw="0.08"/>
+
+      <!-- 3rd target (leave 1f lift)  -->
+      <SetGoal x="-6.06" y="17.05" yaw="1.74" goal="{goal}"/>
+      <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+
+        <PipelineSequence name="NavigateWithReplanning">
+
+          <!-- 规划循环 -->
+          <RateController hz="1.0">
+            <RecoveryNode number_of_retries="1" name="ComputePathToPose">
+              <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Context"
+                                  service_name="global_costmap/clear_entirely_global_costmap"/>
+            </RecoveryNode>
+          </RateController>
+
+          <!-- 跟踪循环 -->
+          <RecoveryNode number_of_retries="1" name="FollowPath">
+            <FollowPath path="{path}" controller_id="FollowPath"/>
+            <ClearEntireCostmap name="ClearLocalCostmap-Context"
+                                service_name="local_costmap/clear_entirely_local_costmap"/>
+          </RecoveryNode>
+
+        </PipelineSequence>
+
+        <!-- 恢复动作 -->
+        <ReactiveFallback name="RecoveryFallback">
+          <GoalUpdated/>
+          <RoundRobin name="RecoveryActions">
+            <Sequence name="ClearingActions">
+              <ClearEntireCostmap name="ClearLocalCostmap-Subtree"
+                                  service_name="local_costmap/clear_entirely_local_costmap"/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Subtree"
+                                  service_name="global_costmap/clear_entirely_global_costmap"/>
+            </Sequence>
+            <Spin spin_dist="1.57"/>
+            <Wait wait_duration="5"/>
+            <BackUp backup_dist="0.30" backup_speed="0.05"/>
+          </RoundRobin>
+        </ReactiveFallback>
+      </RecoveryNode>
+
+      <!-- turn off yolo -->
+      <RunShell script="/home/agv/wzb/shell/yolo_off.sh"/>
+
+      <!-- 4th target (1f lift to starbucks) -->
+      <SetGoal x="10.36" y="124.52" yaw="2.46" goal="{goal}"/>
+      <RecoveryNode number_of_retries="6" name="NavigateRecovery">
+
+        <PipelineSequence name="NavigateWithReplanning">
+
+          <!-- 规划循环 -->
+          <RateController hz="1.0">
+            <RecoveryNode number_of_retries="1" name="ComputePathToPose">
+              <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Context"
+                                  service_name="global_costmap/clear_entirely_global_costmap"/>
+            </RecoveryNode>
+          </RateController>
+
+          <!-- 跟踪循环 -->
+          <RecoveryNode number_of_retries="1" name="FollowPath">
+            <FollowPath path="{path}" controller_id="FollowPath"/>
+            <ClearEntireCostmap name="ClearLocalCostmap-Context"
+                                service_name="local_costmap/clear_entirely_local_costmap"/>
+          </RecoveryNode>
+
+        </PipelineSequence>
+
+        <!-- 恢复动作 -->
+        <ReactiveFallback name="RecoveryFallback">
+          <GoalUpdated/>
+          <RoundRobin name="RecoveryActions">
+            <Sequence name="ClearingActions">
+              <ClearEntireCostmap name="ClearLocalCostmap-Subtree"
+                                  service_name="local_costmap/clear_entirely_local_costmap"/>
+              <ClearEntireCostmap name="ClearGlobalCostmap-Subtree"
+                                  service_name="global_costmap/clear_entirely_global_costmap"/>
+            </Sequence>
+            <Spin spin_dist="1.57"/>
+            <Wait wait_duration="5"/>
+            <BackUp backup_dist="0.30" backup_speed="0.05"/>
+          </RoundRobin>
+        </ReactiveFallback>
+      </RecoveryNode>
+
+    </Sequence>
+
+  </BehaviorTree>
+</root>
+
