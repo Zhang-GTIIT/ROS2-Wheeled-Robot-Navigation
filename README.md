@@ -80,7 +80,7 @@ Hardware drivers and external robot workspaces are not bundled in this repositor
 
 ```bash
 git clone <your-repository-url>
-cd ros2-wheeled-robot-navigation
+cd ros2-slam-astar-wheeled-robot-navigation
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
 source install/setup.bash
