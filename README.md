@@ -1,4 +1,4 @@
-# Ranger Mini V3 Autonomous Navigation (ROS 2)
+# ROS 2 Wheeled Mobile Robot Navigation
 
 A ROS 2 Humble autonomous navigation project for the **Ranger Mini V3 wheeled mobile robot**. The system combines LiDAR-inertial mapping, point-cloud localization, Nav2 planning and control, dynamic-obstacle handling, multi-floor mission logic, and auxiliary perception tasks.
 
@@ -78,7 +78,7 @@ Hardware drivers and external robot workspaces are not bundled in this repositor
 
 ```bash
 git clone <your-repository-url>
-cd ranger-mini-autonomous-navigation-ros2
+cd ros2-wheeled-robot-navigation
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
 source install/setup.bash
