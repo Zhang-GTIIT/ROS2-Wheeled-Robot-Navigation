@@ -1,4 +1,6 @@
-# ROS 2 Wheeled Mobile Robot Navigation
+# RangerNav: ROS 2 Autonomous Navigation for Wheeled Robots
+
+**LiDAR-Inertial Mapping · ICP Localization · Nav2 Planning · Multi-Floor Autonomy**
 
 A ROS 2 Humble autonomous navigation project for the **Ranger Mini V3 wheeled mobile robot**. The system combines LiDAR-inertial mapping, point-cloud localization, Nav2 planning and control, dynamic-obstacle handling, multi-floor mission logic, and auxiliary perception tasks.
 
