@@ -1,4 +1,4 @@
-# RangerNav: ROS 2 Autonomous Navigation for Wheeled Robots
+# ROS 2 Autonomous Navigation for Wheeled Robots
 
 **LiDAR-Inertial Mapping · ICP Localization · Nav2 Planning · Multi-Floor Autonomy**
 
